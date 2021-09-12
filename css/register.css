@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(230, 236, 240);
+    font-family: sans-serif;
+}
+
+.container {
+    width: 500px;
+    height: 420px;
+    background: rgb(252, 249, 249);
+    color: rgb(236, 236, 236);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px
+}
+
+
+.container p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.container input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.container .title h1{
+    margin: 5px;
+}
+.container .title{
+    text-align: center;
+    color: black;
+    margin-bottom: 25px;
+}
+.container input{
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #dac5c5;
+    width: 90%;
+    border: 0;
+    margin: 10px 10px 10px 10px;
+    padding: 15px 15px 15px 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.container input[type="submit"] {
+    border: none;
+    outline: none;
+    margin-left: 75px;
+    width: 30%;
+    height: 50px;
+    background: #e4510d;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.container input[type="submit"]:hover {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+
+.container a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: blue;
+}
+
+.container a:hover {
+    color: #ffc107;
+}

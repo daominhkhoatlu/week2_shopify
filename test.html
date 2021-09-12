@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DashBroad Test</title>
+  <link rel="stylesheet" href="css/test.css">
+  <link rel="stylesheet" href="css/hamberger.css">
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/Chart.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<body>
+  <nav class=hamburger-menu>
+    <a class=hamburger href=#>&#9776;</a>
+    <aside>
+      <ul>
+        <h3 style="align-items: center;"><img src="img/manager device.png"><span>Device Manager</span></h3>
+        <li><a href=test.html><i data-icon=home></i>DashBroad</a></li>
+        <li><a href=log.html><i data-icon=life-ring></i>Log</a></li>
+        <li><a href=#><i data-icon=rocket></i>Setting</a></li>
+      </ul>
+    </aside>
+  </nav>
+  <div class="container">
+    <div class="header">
+      <div class="nav">
+        <div class="user">
+          <div class="img-case">
+            <img src="img/user.png">
+          </div>
+        </div>
+        <div class="welcome">
+          <h4>Welcome John</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="view-all">
+        <table rules="rows" id="myTable" style="width:100%">
+          <thead>
+            <tr>
+              <th>Devices</th>
+              <th>MAC Address</th>
+              <th>IP</th>
+              <th>Create Date </th>
+              <th>Power Consumption(Kw/H)</th>
+
+            </tr>
+          </thead>
+          <tbody id="myBody">
+          <tfoot id="myTFoot" style="background: darkgray;">
+            <th>Total </th>
+            <td>
+            <td></td>
+            </td>
+            <td></td>
+            <td>290</td>
+          </tfoot>
+          </tbody>
+        </table>
+        <script>
+          var dataArr = [
+            {
+              'device': 'TV', 'm_address': '00:1B:11:3A:B7',
+              'ip': '127.0.0.2', 'c_date': '2021-05-21', 'power': '50'
+            },
+            {
+              'device': 'Washer', 'm_address': '00:1B:11:3A:B8',
+              'ip': '127.0.0.3', 'c_date': '2021-05-21', 'power': '60'
+            },
+            {
+              'device': 'Refrigerator', 'm_address': '00:1B:11:3A:B9',
+              'ip': '127.0.0.4', 'c_date': '2021-05-21', 'power': '80'
+            },
+            {
+              'device': 'Selling Fan', 'm_address': '00:1B:11:3A:B2',
+              'ip': '127.0.0.5', 'c_date': '2021-05-21', 'power': '100'
+            }
+          ]
+
+          buildTable(dataArr)
+          function buildTable(data) {
+            var table1 = document.getElementById('myBody');
+
+            for (var i = 0; i < data.length; i++) {
+              var row = `<tr>
+                                            <td>${data[i].device}</td>
+                                            <td>${data[i].m_address}</td>
+                                            <td>${data[i].ip}</td>
+                                            <td>${data[i].c_date}</td>
+                                            <td>${data[i].power}</td>
+                                        </tr>`
+
+              table1.innerHTML += row;
+
+            }
+          }
+        </script>
+      </div>
+      <div class="content2">
+        <div class="chart">
+          <canvas id="mycanvas" width="400" height="400"></canvas>
+        </div>
+        <div class="newDevices">
+          <form class="add-form">
+            <input type="text" id="name" placeholder="name" />
+
+            <input type="text" id="mac" placeholder="MAC Address" />
+
+            <input type="text" id="ip" placeholder="IP" />
+
+            <input type="text" id="create_date" placeholder="Create Date" />
+            <button type="button" onclick="addRow()">ADD DEVICE</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    function addRow() {
+      var i = 1;
+      var total = 290;
+      var name = document.getElementById('name').value;
+      var mac_address = document.getElementById('mac').value;
+      var ip = document.getElementById('ip').value;
+      var c_date = document.getElementById('create_date').value;
+      var power_con = 50 * i++;
+      var table = document.getElementById('myBody');
+      var newRow = table.insertRow(table.rows.length);
+      var tfoot1 = document.getElementById("myTFoot");
+      if (name == "" || mac_address == "" || ip == "" || c_date == "") {
+        alert("Vui long nhap day du thong tin");
+      } else {
+        var row = `<tr>        
+                            <td>${name}</td>
+                            <td>${mac_address}</td>
+                            <td>${ip}</td>
+                            <td>${c_date}</td>
+                            <td>${power_con}</td>
+                        </tr>`
+        total += power_con;
+        var tfoot = `<tfoot><th>Total </th><td><td></td></td><td></td><td>${total}</td></tfoot>`
+
+        table.innerHTML += row;
+        tfoot1.innerHTML = tfoot;
+      }
+
+
+    }
+  </script>
+
+<script src="js/hamburger-menu.js"></script>
+<script src="js/app.js"></script>
+</body>
+
+</html>

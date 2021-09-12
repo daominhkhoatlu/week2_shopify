@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/log.css">
+    <link rel="stylesheet" href="css/hamberger.css">
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link href="css/paging.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="scripts/jquery.table.hpaging.min.js"></script>
+    <title>Log page</title>
+</head>
+
+<body>
+    <nav class=hamburger-menu>
+        <a class=hamburger href=#>&#9776;</a>
+        <aside>
+          <ul>
+            <h3 style="align-items: center;"><img src="img/manager device.png"><span>Device Manager</span></h3>
+            <li><a href="dashbroad.html"><img style="width:35px; height: 35px; margin: 20px -15px;" src="img/dashboard.png">&nbsp;<span>Dashbroad</span> </a></li>
+            <li><a href="log.html"><img style="width:35px; height: 35px; margin: 20px -15px;" src="img/log.png">&nbsp;<span>Log</span> </a></li>
+            <li><a><img style="width:35px; height: 35px; margin: 20px -15px;" src="img/setting.png">&nbsp;<span>Setting</span> </a></li>
+          </ul>
+        </aside>
+      </nav>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="user">
+                    <div class="img-case">
+                        <img src="img/user.png">
+                    </div>
+                </div>
+                <div class="welcome">
+                    <h4>Welcome John</h4>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="search">
+                    <h4>Action Logs</h4>
+                <div class="input_search">
+                    <input type="text" id="s_input" class="input_search_name" onkeyup="myFunction()" placeholder="name">
+                    <button type="submit" class="btnSearch" onclick="buildTable(data)">Search</button>
+                </div>
+
+            </div>
+            <div class="view-all">
+
+                <table rules="rows" id="table1" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Device ID#</th>
+                            <th>Name</th>
+                            <th>Action</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myBody">
+                        
+                    </tbody>
+                </table>
+                <script>
+                    var dataArr = [
+                        {
+                            'id': '1', 'name': 'TV',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '2', 'name': 'Washer',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '3', 'name': 'Refrigerator',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '4', 'name': 'Laptop',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '5', 'name': 'Selling Fan',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '6', 'name': 'Washer',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '7', 'name': 'Refrigerator',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '8', 'name': 'Selling',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '9', 'name': 'Refrigerator',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '10', 'name': 'Washer',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '11', 'name': 'Refrigerator',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '12', 'name': 'Selling',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '13', 'name': 'Refrigerator',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '14', 'name': 'Selling',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '15', 'name': 'Refrigerator',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '16', 'name': 'Refrigerator',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '17', 'name': 'Print',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '18', 'name': 'Refrigerator',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '19', 'name': 'Washer',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '20', 'name': 'Print',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '21', 'name': 'Refrigerator',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '22', 'name': 'Print',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '23', 'name': 'Selling',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '24', 'name': 'Print',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '25', 'name': 'Refrigerator',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '26', 'name': 'Washer',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '27', 'name': 'Print',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '28', 'name': 'TV',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '29', 'name': 'Refrigerator',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '30', 'name': 'TV',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '31', 'name': 'Selling',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '32', 'name': 'TV',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '33', 'name': 'Refrigerator',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '34', 'name': 'TV',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '35', 'name': 'TV',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '36', 'name': 'TV',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '37', 'name': 'Refrigerator',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '38', 'name': 'TV',
+                            'action': 'Turn On', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '39', 'name': 'TV',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        },
+                        {
+                            'id': '40', 'name': 'Refrigerator',
+                            'action': 'Turn Off', 'date': '2021-05-21'
+                        }
+                    ]
+
+                    function myFunction() {
+                        var input, filter, table, tr, td, i, txtValue;
+                        input = document.getElementById("s_input");
+                        filter = input.value.toUpperCase();
+                        table = document.getElementById("table1");
+                        tr = table.getElementsByTagName("tr");
+                        for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td")[1];
+                            if (td) {
+                                txtValue = td.textContent || td.innerText;
+                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    tr[i].style.display = "";
+                                } else {
+                                    tr[i].style.display = "none";
+                                }
+                            }
+                        }
+                    }
+                    buildTable(dataArr)
+                    function buildTable(data) {
+                        var table1 = document.getElementById('myBody');
+
+                        for (var i = 0; i < data.length; i++) {
+                            var row = `<tr>
+                                            <td>${data[i].id}</td>
+                                            <td>${data[i].name}</td>
+                                            <td>${data[i].action}</td>
+                                            <td>${data[i].date}</td>
+                                        </tr>`
+
+                            table1.innerHTML += row;
+
+                        }
+                    }
+                </script>
+            </div>
+
+        </div>
+
+        <script type="text/javascript">
+            $(function () {
+                $("#table1").hpaging({ "limit": 10 });
+            });
+
+            $("#btnApply").click(function () {
+                var lmt = $("#pglmt").val();
+                $("#table1").hpaging("newLimit", lmt);
+            });
+        </script>
+
+    </div>
+
+    </div>
+</body>
+
+</html>
